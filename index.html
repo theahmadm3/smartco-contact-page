@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    />
+    <style>
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .fc {
+        min-width: fit-content;
+      }
+      /* Apply these styles when the screen width is 600px or less */
+@media screen and (min-width: 600px) {
+    .contact{
+      max-width: 40%;
+    }
+}
+
+    </style>
+    <title>Smartco Contact</title>
+  </head>
+  <body>
+    <div class="bn contact flex flex-column center blue">
+      <div class="tc bg-light-gray gray">
+        <img src="./smartcologo.png" alt="Smartco logo" class="w-40" /> <br />
+        <div class="b1 pa2 mt3 flex flex-row justify-around">
+          <div class="tc flex flex-column">
+            <a href="tel:+2348180800080">
+              <img src="./phone.svg" alt="call logo" />
+            </a>
+            <a href="tel:+2348180800080"> <p>CALL</p> </a>
+          </div>
+          <div class="tc flex flex-column">
+            <a href="mailto:smartcoinnovtions@gmail.com">
+              <img src="./send.svg" alt="email logo" />
+            </a>
+            <a href="mailto:smartcoinnovtions@gmail.com"> <p>EMAIL</p> </a>
+          </div>
+        </div>
+      </div>
+      <div class="pa2 tc">
+        <button
+          id="downloadBtn"
+          class="pa2 blue bn shadow-2 grow pointer"
+        >
+          Save Contact
+        </button>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./phone.svg" alt="call logo" />
+        <p class="pa3">
+          <a href="tel:+2348180800080"> +2348180800080 </a> <br />
+          Mobile
+        </p>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./send.svg" alt="email logo" />
+        <p class="pa3">
+          <a href="mailto:smartcoinnovtions@gmail.com">
+            SmartCoInnovations@gmail.com
+          </a>
+          <br />
+          Email
+        </p>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./map.svg" alt="map logo" />
+        <p class="pa3">
+          <a
+            href="https://www.google.com/maps?sca_esv=566982129&rlz=1CDGOYI_enNG1046NG1046&hl=en-GB&output=search&q=Suite+BPG+6,+Old+Banex+Plaza,+Wuse,+Abuja&source=lnms&entry=mc&sa=X&ved=2ahUKEwjEkuWH5rmBAxUyXEEAHRXpBUoQ0pQJegQIDBAB"
+          >
+            Suite BPG 6, Old Banex Plaza, Wuse, Abuja.
+          </a>
+          <br />
+          Location
+        </p>
+      </div>
+    </div>
+    <script src="./contact.js"></script>
+  </body>
+</html>
