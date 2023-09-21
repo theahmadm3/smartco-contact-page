@@ -4,41 +4,44 @@ const contactInfo = {
     phone: "+2348180800080",
     address: "Suite BPG 6, Old Banex Plaza, Wuse, Abuja",
     whatsapp: "+2348180800080",
+    picture: "./smartcologo.png"
 };
 
-function generateVCardWithPicture() {
-    const img = new Image();
-    img.crossOrigin = "Anonymous";
-    img.src = "./smartcologo.png";
 
-    img.onload = function () {
-        const canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, img.width, img.height);
+function generateVCard(contactInfo) {
+    let vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactInfo.firstName}
+EMAIL:${contactInfo.email}
+TEL:${contactInfo.phone}
+ADR:${contactInfo.address} // Address field
+X-SOCIALPROFILE;type=whatsapp:${contactInfo.whatsapp} // WhatsApp field`;
 
-        const pictureData = canvas.toDataURL("image/jpeg");
+    if (contactInfo.picture) {
+        vCardData += `\nPHOTO;VALUE=uri:${contactInfo.picture}`;
+    }
 
-        contactInfo.picture = pictureData;
+    vCardData += `\nEND:VCARD`;
+    return vCardData;
+}
 
-        const vCardData = generateVCard(contactInfo);
-        const blob = new Blob([vCardData], { type: "text/vcard" });
-        const url = URL.createObjectURL(blob);
 
-        const downloadLink = document.createElement("a");
-        downloadLink.href = url;
-        downloadLink.download = "contact.vcf";
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
+function downloadVCard() {
+    const vCardData = generateVCard(contactInfo);
+    const blob = new Blob([vCardData], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
 
-        downloadLink.click();
+    const downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = "contact.vcf";
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
 
-        URL.revokeObjectURL(url);
-        document.body.removeChild(downloadLink);
-    };
+    downloadLink.click();
+
+    URL.revokeObjectURL(url);
+    document.body.removeChild(downloadLink);
 }
 
 const downloadButton = document.getElementById("downloadBtn");
-downloadButton.addEventListener("click", generateVCardWithPicture);
-
+downloadButton.addEventListener("click", downloadVCard);
