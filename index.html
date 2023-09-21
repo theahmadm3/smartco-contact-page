@@ -7,22 +7,7 @@
       rel="stylesheet"
       href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
     />
-    <style>
-      a {
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .fc {
-        min-width: fit-content;
-      }
-      /* Apply these styles when the screen width is 600px or less */
-@media screen and (min-width: 600px) {
-    .contact{
-      max-width: 40%;
-    }
-}
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <title>Smartco Contact</title>
   </head>
   <body>
@@ -45,10 +30,7 @@
         </div>
       </div>
       <div class="pa2 tc">
-        <button
-          id="downloadBtn"
-          class="pa2 blue bn shadow-2 grow pointer"
-        >
+        <button id="downloadBtn" class="pa2 blue bn shadow-2 grow pointer">
           Save Contact
         </button>
       </div>
@@ -79,6 +61,49 @@
           </a>
           <br />
           Location
+        </p>
+      </div>
+      <h2 class="pl4">Socials</h2>
+      <div class="flex flex-row pl4">
+        <img src="./whatsapp.svg" alt="WhatsApp logo" class="wa" />
+        <p class="pa3">
+          <a href="https://wa.me/2348180800080">
+            +2348180800080
+            <br />
+            WhatsApp
+          </a>
+        </p>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./instagram.svg" alt="Instagram logo" />
+        <p class="pa3">
+          <a href="https://instagram.com/smartcolimitedl">
+            @SmartCoInnovations
+            <br />
+            Instagram
+          </a>
+        </p>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./facebook.svg" alt="FaceBook logo" />
+        <p class="pa3">
+          <a
+            href="https://www.facebook.com/profile.php?id=61551713662482&mibextid=LQQJ4d"
+          >
+            SmartCo Innovations Limited
+            <br />
+            FaceBook
+          </a>
+        </p>
+      </div>
+      <div class="flex flex-row pl4">
+        <img src="./twitter.svg" alt="Twitter logo" />
+        <p class="pa3">
+          <a href="https://x.com/smartcolimited?s=11">
+            @SmartCoInnovations
+            <br />
+            Twitter
+          </a>
         </p>
       </div>
     </div>
