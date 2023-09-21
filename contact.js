@@ -3,10 +3,10 @@ const contactInfo = {
     email: "smartcoinnovations@gmail.com",
     phone: "+2348180800080",
     address: "Suite BPG 6, Old Banex Plaza, Wuse, Abuja",
-    whatsapp: "+2348180800080", // Add WhatsApp number
+    whatsapp: "+2348180800080",
 };
 
-// Generate vCard content dynamically
+
 function generateVCard(contactInfo) {
     return `BEGIN:VCARD
 VERSION:3.0
@@ -18,7 +18,7 @@ X-SOCIALPROFILE;type=whatsapp:${contactInfo.whatsapp} // WhatsApp field
 END:VCARD`;
 }
 
-// Create a function to trigger the download
+
 function downloadVCard() {
     const vCardData = generateVCard(contactInfo);
     const blob = new Blob([vCardData], { type: "text/vcard" });
@@ -32,11 +32,11 @@ function downloadVCard() {
 
     downloadLink.click();
 
-    // Clean up the temporary link
+    
     URL.revokeObjectURL(url);
     document.body.removeChild(downloadLink);
 }
 
-// Attach the download function to the button
+
 const downloadButton = document.getElementById("downloadBtn");
 downloadButton.addEventListener("click", downloadVCard);
