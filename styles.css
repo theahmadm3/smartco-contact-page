@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(17, 143, 221);
+}
+.fc {
+  min-width: fit-content;
+}
+.wa {
+  width: 6.8%;
+}
+/* Apply these styles when the screen width is 600px or less */
+@media screen and (min-width: 600px) {
+  .contact {
+    max-width: 40%;
+  }
+}
