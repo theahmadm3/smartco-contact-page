@@ -4,18 +4,25 @@ const contactInfo = {
     phone: "+2348180800080",
     address: "Suite BPG 6, Old Banex Plaza, Wuse, Abuja",
     whatsapp: "+2348180800080",
+    picture: "./smartcologo.png"
 };
 
 
 function generateVCard(contactInfo) {
-    return `BEGIN:VCARD
+    let vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:${contactInfo.firstName}
 EMAIL:${contactInfo.email}
 TEL:${contactInfo.phone}
 ADR:${contactInfo.address} // Address field
-X-SOCIALPROFILE;type=whatsapp:${contactInfo.whatsapp} // WhatsApp field
-END:VCARD`;
+X-SOCIALPROFILE;type=whatsapp:${contactInfo.whatsapp} // WhatsApp field`;
+
+    if (contactInfo.picture) {
+        vCardData += `\nPHOTO;VALUE=uri:${contactInfo.picture}`;
+    }
+
+    vCardData += `\nEND:VCARD`;
+    return vCardData;
 }
 
 
@@ -32,11 +39,9 @@ function downloadVCard() {
 
     downloadLink.click();
 
-    
     URL.revokeObjectURL(url);
     document.body.removeChild(downloadLink);
 }
-
 
 const downloadButton = document.getElementById("downloadBtn");
 downloadButton.addEventListener("click", downloadVCard);
